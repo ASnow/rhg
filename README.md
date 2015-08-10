@@ -95,3 +95,5 @@ VALUE arr = ....;
 RSTRING(str)->len;   /* ((struct RString*)str)->len */
 RARRAY(arr)->len;    /* ((struct RArray*)arr)->len */
 ```
+
+Еще одно важное замечание в том, что все структуры объектов начинаются с члена 'basic', который принадлежит к типу `struct RBasic`. В связи с этим если вы перобразуете `VALUE` к `struct RBasic` вы получите доступ к `basic` независимо от типа структуры хранимой в `VALUE` (в Си указатель на `VALUE` и `struct RBasic` совпадают).
